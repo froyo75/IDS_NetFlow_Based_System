@@ -1,0 +1,34 @@
+[192.168.142.142:7200] 
+#
+ghostios = true
+sparsemem = true	
+#
+[[7200]]
+image = /root/cisco/c7200-jk9s-mz.124-13b.image
+npe = npe-400
+ram = 160 	
+#
+[[ROUTER R1]]
+slot0 = PA-C7200-IO-2FE
+F0/0 = NIO_tap:tap0
+F0/1 = WEB 1
+F1/0 =  NETFLOW 1
+
+[192.168.142.150:7201]
+#
+ghostios = true
+sparsemem = true
+#
+[[ETHSW NETFLOW]]
+2 = dot1q 1 NIO_tap:tap0
+
+[192.168.142.151:7202]
+#
+ghostios = true
+sparsemem = true
+#
+[[ETHSW WEB]]
+2 = dot1q 1 NIO_tap:tap0
+
+
+

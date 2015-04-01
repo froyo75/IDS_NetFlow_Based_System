@@ -1,0 +1,36 @@
+interface FastEthernet0/0
+ ip address 10.0.1.254 255.255.255.0
+ ip route-cache flow
+ duplex auto
+ speed auto
+ no shut
+!         
+interface FastEthernet0/1
+ ip address 192.168.1.254 255.255.255.0
+ ip route-cache flow
+ duplex auto
+ speed auto
+ no shut
+!
+interface FastEthernet1/0
+ ip address 192.168.2.254 255.255.255.0
+ ip route-cache flow
+ duplex auto
+ speed auto
+ no shut
+!
+interface FastEthernet1/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ no shut
+!
+ip flow-export source FastEthernet1/0
+ip flow-export version 9
+ip flow-export template options export-stats
+ip flow-export template options timeout-rate 120
+ip flow-export template options refresh-rate 25
+ip flow-export template timeout-rate 90
+ip flow-export template refresh-rate 15
+ip flow-export destination 192.168.2.1 2055

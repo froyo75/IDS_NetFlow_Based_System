@@ -1,0 +1,7 @@
+[192.168.142.142:7200] 
+#
+ghostios = true
+sparsemem = true	
+#
+[[ETHSW NETFLOW]]
+1 = dot1q 1 NIO_tap:tap0
