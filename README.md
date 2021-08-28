@@ -30,7 +30,7 @@ MAX_LATENCY = 100 # maximum acceptable latency
 MAX_SYN_BACKLOG = 2048 # backlog queue size
 ```
 
-### Usage:
+### Usage
 
 ```shell
 ~$ python2.x dosflowsys.py
