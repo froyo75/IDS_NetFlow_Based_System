@@ -1,49 +1,37 @@
-##########################################################################################
-##                                                                         				##
-## dosflowsys.py --- NetFlow Based System For Detecting DoS and DDoS Attacks ---        ##
-##   																					##
-##     Copyright (C) 2012 : Froyo      													##
-##                                                								        ##
-##     This program is free software; you can redistribute it and/or modify it          ##
-##   under the terms of the GNU General Public License version 2 as                     ##
-##   published by the Free Software Foundation.                                         ##
-##                                                                         			  	##
-##   This program is distributed in the hope that it will be useful, but     			##
-##   WITHOUT ANY WARRANTY; without even the implied warranty of              			##
-##   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU       			##
-##   General Public License for more details.                                			##
-##                                                                         				##
-##########################################################################################
+## NetFlow Based System For Detecting DoS and DDoS Attacks
 
-=============
-Requirements
-=============
+### Requirements
 
- -> Python 2.5 or higher : "http://www.python.org/download/"
- -> Scapy tool v2.x : "http://www.secdev.org/projects/scapy/doc/installation.html"
+ * [Python 2.5 or higher](http://www.python.org/download/)
+ * [Scapy tool v2.x](http://www.secdev.org/projects/scapy/doc/installation.html)
 
-=============
-Installation:
-=============
-It is needed to copy the "netflowV9.py" file into "/usr/local/lib/python2.x/site-packages/scapy/layers/" for adding the Cisco NetFlow protocol to Scapy tools.
+### Installation
 
-:~$ cp netflowV9.py /usr/local/lib/python2.x/site-packages/scapy/layers/netflowV9.py
-:~$ cp dosflowsys.py .
-:~$ mkdir servers # to create the "servers" that contains configuration files for each server to be probed
+It is needed to copy the ***"netflowV9.py"*** file into ***"/usr/local/lib/python2.x/site-packages/scapy/layers/"*** for adding the Cisco NetFlow protocol to Scapy tools.
 
-==============
+```shell
+~$ cp netflowV9.py /usr/local/lib/python2.x/site-packages/scapy/layers/netflowV9.py
+```
+```shell
+~$ cp dosflowsys.py .
+```
+
+```shell
+~$ mkdir servers # to create the "servers" that contains configuration files for each server to be probed
+```
+
 It is needed to define a configuration file for each server into "servers" directory
 
-An example is given below:
+***An example is given below:***
 
-filename: "192.168.1.1"
-
-PORT_DST = 53, 80, 22 # listening and open port numbers
+```PORT_DST = 53, 80, 22 # listening and open port numbers
 MAX_TCP_CLIENTS = 4000 # maximum number of TCP clients supported by the server
 MAX_LATENCY = 100 # maximum acceptable latency
 MAX_SYN_BACKLOG = 2048 # backlog queue size
+```
 
-Usage:
-======
+### Usage:
 
-:~$ python2.x dosflowsys.py
+```shell
+~$ python2.x dosflowsys.py
+```
